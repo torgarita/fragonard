@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow-x: visible;
+    font-family: 'open sans', sans-serif;
+}
+
+
+img {
+    display: block;
+    margin: 200px auto 0;
+    width: 50px;
+    height: 50px;
+}
+
+h1 {
+    display: block;
+    margin-top: 3%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 40px;
+    color: #E31734;
+}
+
+h2 {
+    margin-top: 5%;
+    text-align: center;
+    font-size: 22px;
+    line-height: 22px;
+}
+
+.close {
+    position: absolute;
+    right: 32px;
+    top: 32px;
+    width: 32px;
+    height: 32px;
+    }
+
+.close:before, .close:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 33px;
+    width: 2px;
+    background-color: #E31734;
+}
+
+.close:before {
+    transform: rotate(45deg);
+}
+
+.close:after {
+    transform: rotate(-45deg);
+}
