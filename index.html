@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фрагонард</title>
+    <link rel="stylesheet" href="css/styleMain.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+		$(function() {
+			var pull 		= $('#pull');
+				menu 		= $('#myMenu');
+				menuHeight	= menu.height();
+
+			$(pull).on('click', function(e) {
+				e.preventDefault();
+				menu.slideToggle();
+			});
+
+			$(window).resize(function(){
+        		var w = $(window).width();
+        		if(w > 320 && menu.is(':hidden')) {
+        			menu.removeAttr('style');
+        		}
+    		});
+        });
+
+        $(document).ready(function(){
+    $('#button').click(function(){
+        var form_name   = $('#form_name').val();
+        var form_email   = $('#form_email').val();
+        var form_message = $('#form_message').val();
+        $.ajax({
+            url: "post.php", 
+            type: "post", 
+            dataType: "json", 
+            data: { 
+                "form_name":   form_name,
+                "form_email":   form_email,
+                "form_message": form_message
+            },
+            success: function(data){
+                $('.messages').html(data.result); 
+            }
+        });
+    });
+});
+	</script>
+</head>
+<body> 
+    <header class="header">
+        <div class="bg_img" id="bg">
+        <img src="img/logo.png" alt="logo" class="logo">
+        <nav class="clearfix">
+            <li class="icon_menu" id="pull"><img src="img/menu.png" alt=""></li>
+            <ul class="menu clearfix" id="myMenu">
+                <li><a href="#specializations">Специализации</a></li>
+                <li><a href="#scheme">Схема работы</a></li>
+                <li><a href="#delivery">Стоимость доставки</a></li>
+                <li><a href="#about_us">О нас</a></li>
+            </ul>
+            
+        </nav>
+        <h1>Лучшие условия по DDP в регионе</h1>
+        <p>ООО ТК «‎Фрагонард‎»‎ специализируется на международной доставке оборудования, товаров общего назначения и промышленных материалов партиями любого размера. Профессиональная команда и узкая специализация компании на организации комплексной поставки позволяют гарантировать гибкие и понятные условия сотрудничества для оперативного выполнения заказов любой сложности.</p>
+        <a href="#contacts"><p id="order">Заказать звонок</p></a>
+        </div>
+    </header>
+<main>
+    <div id="specializations">
+        <div class="wrapper">
+            <h2>Наши <span class="red">Специализации</span></h2>
+            <div class="cards">
+                <div class="card">
+                    <div class="icon"><img src="img/delivery.png" alt="delivery"></div>
+                    <div class="kind">Ваш поставкщик</div>
+                    <div class="description">Международная доставка промышленных товаров, технологичного оборудования, расходных материалов, запчастей и других грузов вне зависимости от размера партии</div>
+                </div>
+                <div class="card">
+                    <div class="icon"><img src="img/handPen.png" alt="handpen"></div>
+                    <div class="kind">Ваш представитель</div>
+                    <div class="description">Агентское представление по договорам поставки</div>
+                </div>
+                <div class="card">
+                    <div class="icon"><img src="img/lawyer.png" alt="lawyer"></div>
+                    <div class="kind">Ваш юрист</div>
+                    <div class="description">Юридическое сопровождение сделки на всех этапах</div>
+                </div>
+                <div class="card">
+                    <div class="icon"><img src="img/customs.png" alt="customs"></div>
+                    <div class="kind">Таможенный брокер</div>
+                    <div class="description">Оказание услуг по таможенной очистке ввозимого товара</div>
+                </div>
+                <div class="card">
+                    <div class="icon"><img src="img/certificate.png" alt="certificate"></div>
+                    <div class="kind">Сертификация</div>
+                    <div class="description">Оформление разрешительных документов любой сложности</div>
+                </div>
+                <div class="card">
+                    <div class="icon"><img src="img/TM.png" alt="TM"></div>
+                    <div class="kind">Патентный поверенный</div>
+                    <div class="description">Помощь в подготовке документов на получение товарных знаков, представления интересов в Роспатенте</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="scheme" id="bg">
+        <div class="wrapper">
+            <h2>Схема <span class="red">Работы</span></h2>
+            <ul class="scheme_list">
+                <li class="list"><span id="text">Проведение переговоров и согласование номенклатуры товара, типа упаковки, сроков и стоимости поставки с последующим оформлением договора поставки</span><div class="line"></div></li>
+                <li class="list"><span id="text">Подготовка полного пакета сертифицирующих и разрешительных документов на транспортировку и таможенное оформление товара</span><div class="line"></div></li>
+                <div class="min_line">
+                <li class="list"><span id="text">Выбор посредника для транспортировки груза на основе пожеланий заказчика</span><div class="line"></div></li>
+                <li class="list"><span id="text">Осуществление таможенного оформления груза</span><div class="line"></div></li>
+                <li class="list"><span id="text">Подготовка к транспортировке, маркировка и товарный учёт полученного груза</span><div class="line"></div></li>
+                <li class="list"><span id="text">Сопровождение груза до склада заказчика</span><div class="line"></div></li>
+                <li class="list"><span id="text">Подпись акта сверки и произведение окончательного расчёта</span></li>
+            </div>
+            </ul>
+        </div>
+    </div>
+    <div id="delivery">
+        <div class="wrapper">
+            <div class="bg_img" id="bg">
+            <h2>Расчет Стоимости <span class="red">Доставки</span></h2>
+            <p>После заключения договора поставки заказчиком подаётся заявка на поиск и транспортировку необходимых товаров, организацию их таможенного оформления и, при необходимости, сопровождение до склада заказчика. Наши специалисты по логистике анализируют заявку и формируют предложение, в которое входят реально достижимые сроки, технические параметры и ориентировочная стоимость исполнения договора. Конечная стоимость конкретного заказа рассчитывается по результату исполнения заявки</p>
+            </div>
+        </div>
+    </div>
+    <div id="about_us">
+        <div class="wrapper">
+            <div class="world_map">      
+            <h2>О <span class="red">Компании</span></h2>
+            <div class="column">
+            <p>Возможности грузовых перевозок ООО ТК «‎Фрагонард‎»‎ обширны по своей географии и позволяют подобрать оптимальные условия конкретной поставки, формируя индивидуальное выгодное предложение для каждого заказчика.</p>  
+            <p>Обращаясь за нашими услугами, Вы можете быть уверены в получении готового решения всех поставленных задач от подготовки необходимых документов до получения промаркированного товара с полным пакетом разрешительных и сопроводительных документов.</p> 
+            <p>Для осуществления нашей деятельности мы выбираем только надёжных партнёров, а каждый этап работы находится под строгим контролем, гарантируя высокое качество услуг и выполнение всех договоренностей.</p>
+            <p>Обширные связи с производителями промышленных материалов и оборудования позволяют предоставить заказчику широкий выбор товаров, сохраняя при этом доступные цены и гарантию качества.</p>    
+            <p>Наша задача – обеспечить быструю, безопасную и бережную доставку Вашего груза, взяв на себя не только все заботы по его транспортировке, но и риски взаимодействия с партнёрами и контрагентами. Большой опыт нашей команды в организации международных грузоперевозок позволяет заранее спрогнозировать все возможные риски, чтобы заказ был доставлен в полной комплектации и точно в срок.</p>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div id="contacts">
+        <div class="wrapper">
+            <h2>Связаться с <span class="red">Нами</span></h2>
+            <form id="feedback-form" action="desktop.html" novalidate>
+                <div class="form-row">
+                  <!-- Имя пользователя -->
+                  <div class="form-group">
+                    <input id="form_name" type="text" name="name" class="form-control" value="" placeholder="Имя" minlength="2"
+                           maxlength="30" required="required" style="padding-left: 10px;">
+                    <div class="invalid-feedback"></div>
+                  </div>
+                  <!-- Email пользователя -->
+                  <div class="form-group">
+                    <input id="form_email" type="email" name="email" required="required" class="form-control" value=""
+                           placeholder="Email-адрес" style="padding-left: 10px;">
+                    <div class="invalid-feedback"></div>
+                  </div>
+                </div>
+                <!-- Сообщение пользователя -->
+                <div class="form-group">
+                  <textarea id="form_message" name="message" class="form-control" rows="3"
+                            placeholder="Добавить комментарий..." minlength="20" maxlength="500"
+                            required="required" style="padding: 10px;"></textarea>
+                  <div class="invalid-feedback"></div>
+                </div>
+                    <button type="submit" id="button" onClick='location.href="desktop.html"'>Отправить сообщение</button>
+            </form>
+            <ul class="columns_contacts">
+                <li class="contact"><img src="img/phone.png" alt="phone"><a href="tel:74232077030" style="color:black;"><p>+7 (423) 207-70-30</p></a></li>
+                <li class="contact"><img src="img/mail.png" alt="mail"><a href="mailto:sales@dvsupply.ru" style="color:black;"><p>sales@dvsupply.ru</p></a></li>
+                <li class="contact"><img src="img/map.png" alt="map"><a href="https://goo.gl/maps/ymRcChSaUuRhV8hp6" style="color:black;" target="_blank"><p>г. Владивосток, ул. Калинина, д. 24/7, офис 34 (106)</p></a></li>
+            </ul>
+        </div>
+    </div> 
+</main>
+<footer>
+    <div class="bg_img" id="bg">
+    <img src="img/logo.png" alt="logo">
+    <p>© Все права защищены 2020</p>
+</div>
+</footer>
+<script src="js/script.js"></script>
+</body>
+</html>
+
