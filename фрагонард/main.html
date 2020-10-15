@@ -6,7 +6,7 @@
     <title>Фрагонард</title>
     <link rel="stylesheet" href="css/styleMain.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script>
 		$(function() {
 			var pull 		= $('#pull');
@@ -24,7 +24,28 @@
         			menu.removeAttr('style');
         		}
     		});
-		});
+        });
+
+        $(document).ready(function(){
+    $('#button').click(function(){
+        var form_name   = $('#form_name').val();
+        var form_email   = $('#form_email').val();
+        var form_message = $('#form_message').val();
+        $.ajax({
+            url: "post.php", 
+            type: "post", 
+            dataType: "json", 
+            data: { 
+                "form_name":   form_name,
+                "form_email":   form_email,
+                "form_message": form_message
+            },
+            success: function(data){
+                $('.messages').html(data.result); 
+            }
+        });
+    });
+});
 	</script>
 </head>
 <body> 
@@ -43,7 +64,7 @@
         </nav>
         <h1>Лучшие условия по DDP в регионе</h1>
         <p>ООО ТК «‎Фрагонард‎»‎ специализируется на международной доставке оборудования, товаров общего назначения и промышленных материалов партиями любого размера. Профессиональная команда и узкая специализация компании на организации комплексной поставки позволяют гарантировать гибкие и понятные условия сотрудничества для оперативного выполнения заказов любой сложности.</p>
-        <button id="button"><a href="#contacts">Заказать звонок</a></button>
+        <a href="#contacts"><p id="order">Заказать звонок</p></a>
         </div>
     </header>
 <main>
@@ -129,30 +150,30 @@
                 <div class="form-row">
                   <!-- Имя пользователя -->
                   <div class="form-group">
-                    <input id="name" type="text" name="name" class="form-control" value="" placeholder="Имя" minlength="2"
-                           maxlength="30" required="required">
+                    <input id="form_name" type="text" name="name" class="form-control" value="" placeholder="Имя" minlength="2"
+                           maxlength="30" required="required" style="padding-left: 10px;">
                     <div class="invalid-feedback"></div>
                   </div>
                   <!-- Email пользователя -->
                   <div class="form-group">
-                    <input id="email" type="email" name="email" required="required" class="form-control" value=""
-                           placeholder="Email-адрес">
+                    <input id="form_email" type="email" name="email" required="required" class="form-control" value=""
+                           placeholder="Email-адрес" style="padding-left: 10px;">
                     <div class="invalid-feedback"></div>
                   </div>
                 </div>
                 <!-- Сообщение пользователя -->
                 <div class="form-group">
-                  <textarea id="message" name="message" class="form-control" rows="3"
+                  <textarea id="form_message" name="message" class="form-control" rows="3"
                             placeholder="Добавить комментарий..." minlength="20" maxlength="500"
-                            required="required"></textarea>
+                            required="required" style="padding: 10px;"></textarea>
                   <div class="invalid-feedback"></div>
                 </div>
                     <button type="submit" id="button" onClick='location.href="desktop.html"'>Отправить сообщение</button>
             </form>
             <ul class="columns_contacts">
-                <li class="contact"><img src="img/phone.png" alt="phone"><p>+7 (423) 207-70-30</p></li>
-                <li class="contact"><img src="img/mail.png" alt="mail"><p>sales@dvsupply.ru</p></li>
-                <li class="contact"><img src="img/map.png" alt="map"><p>г. Владивосток, ул. Калинина, д. 24/7, офис 34 (106)</p></li>
+                <li class="contact"><img src="img/phone.png" alt="phone"><a href="tel:74232077030" style="color:black;"><p>+7 (423) 207-70-30</p></a></li>
+                <li class="contact"><img src="img/mail.png" alt="mail"><a href="mailto:sales@dvsupply.ru" style="color:black;"><p>sales@dvsupply.ru</p></a></li>
+                <li class="contact"><img src="img/map.png" alt="map"><a href="https://goo.gl/maps/ymRcChSaUuRhV8hp6" style="color:black;" target="_blank"><p>г. Владивосток, ул. Калинина, д. 24/7, офис 34 (106)</p></a></li>
             </ul>
         </div>
     </div> 
@@ -163,7 +184,7 @@
     <p>© Все права защищены 2020</p>
 </div>
 </footer>
-<script src="s.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>
 
