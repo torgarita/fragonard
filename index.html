@@ -25,9 +25,8 @@
         		}
     		});
         });
-
         $(document).ready(function(){
-    $('#button').click(function(){
+    $('#button_contacts').click(function(){
         var form_name   = $('#form_name').val();
         var form_email   = $('#form_email').val();
         var form_message = $('#form_message').val();
@@ -63,8 +62,8 @@
             
         </nav>
         <h1>Лучшие условия по DDP в регионе</h1>
-        <p>ООО ТК «‎Фрагонард‎»‎ специализируется на международной доставке оборудования, товаров общего назначения и промышленных материалов партиями любого размера. Профессиональная команда и узкая специализация компании на организации комплексной поставки позволяют гарантировать гибкие и понятные условия сотрудничества для оперативного выполнения заказов любой сложности.</p>
-        <a href="#contacts"><p id="order">Заказать звонок</p></a>
+        <p class="annotation">ООО ТК «‎Фрагонард‎»‎ специализируется на международной доставке оборудования, товаров общего назначения и промышленных материалов партиями любого размера. Профессиональная команда и узкая специализация компании на организации комплексной поставки позволяют гарантировать гибкие и понятные условия сотрудничества для оперативного выполнения заказов любой сложности.</p>
+        <div class="order"><a href="#contacts"><p id="order">Заказать звонок</p></a></div>
         </div>
     </header>
 <main>
@@ -146,30 +145,23 @@
     <div id="contacts">
         <div class="wrapper">
             <h2>Связаться с <span class="red">Нами</span></h2>
-            <form id="feedback-form" action="desktop.html" novalidate>
-                <div class="form-row">
-                  <!-- Имя пользователя -->
-                  <div class="form-group">
-                    <input id="form_name" type="text" name="name" class="form-control" value="" placeholder="Имя" minlength="2"
-                           maxlength="30" required="required" style="padding-left: 10px;">
-                    <div class="invalid-feedback"></div>
-                  </div>
-                  <!-- Email пользователя -->
-                  <div class="form-group">
-                    <input id="form_email" type="email" name="email" required="required" class="form-control" value=""
-                           placeholder="Email-адрес" style="padding-left: 10px;">
-                    <div class="invalid-feedback"></div>
-                  </div>
-                </div>
-                <!-- Сообщение пользователя -->
+            <section id="message">
                 <div class="form-group">
-                  <textarea id="form_message" name="message" class="form-control" rows="3"
-                            placeholder="Добавить комментарий..." minlength="20" maxlength="500"
-                            required="required" style="padding: 10px;"></textarea>
-                  <div class="invalid-feedback"></div>
+                    <input id="form_name" type="text" class="form-control" required="" placeholder="Имя" style="padding-left: 10px;">
+                    <div class="help-block with-errors"></div>
                 </div>
-                    <button type="submit" id="button" onClick='location.href="desktop.html"'>Отправить сообщение</button>
-            </form>
+                <div class="form-group">
+                    <input id="form_email" type="email" class="form-control" placeholder="Email" required="" style="padding-left: 10px;" data-error="Требуется действующее электронное письмо.">
+                    <div class="help-block with-errors"></div>
+                </div>
+                <div class="form-group">
+                    <textarea id="form_message" name="text_comment" class="form-control" style="padding: 10px;" placeholder="Добавить комментарий..." required="" data-error="Пожалуйста, оставьте нам сообщение."></textarea>
+                    <div class="help-block with-errors"></div>
+                </div>
+                <div class="messages"></div>
+                <button type="submit" name="btn_submit" id="button_contacts" onClick='location.href="desktop.html"'>Отправить сообщение</button>
+                </div>
+            </section>
             <ul class="columns_contacts">
                 <li class="contact"><img src="img/phone.png" alt="phone"><a href="tel:74232077030" style="color:black;"><p>+7 (423) 207-70-30</p></a></li>
                 <li class="contact"><img src="img/mail.png" alt="mail"><a href="mailto:sales@dvsupply.ru" style="color:black;"><p>sales@dvsupply.ru</p></a></li>

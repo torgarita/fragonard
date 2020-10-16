@@ -2,8 +2,8 @@
     $msg_box = ""; // в этой переменной будем хранить сообщения формы
     $errors = array(); // контейнер для ошибок
     // проверяем корректность полей
-	if($_POST['form_email'] == "")   $errors[] = "Поле <span style='color: #666;'>Ваш e-mail</span> не заполнено";
     if($_POST['form_name'] == "")    $errors[] = "Поле <span style='color: #666;'>Ваше имя</span> не заполнено";
+	if($_POST['form_email'] == "")   $errors[] = "Поле <span style='color: #666;'>Ваш e-mail</span> не заполнено";
     if($_POST['form_message'] == "") $errors[] = "Поле <span style='color: #666;'>Текст сообщения</span> не заполнено";
  
     // если форма без ошибок
@@ -33,7 +33,7 @@
     // функция отправки письма
     function send_mail($message){
         // почта, на которую придет письмо
-        $mail_to = "toropova.rita@gmail.com"; 
+        $mail_to = "sales@dvsupply.ru"; 
         // тема письма
         $subject = "Письмо с обратной связи";
          

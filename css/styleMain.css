@@ -116,6 +116,9 @@ header p {
     color: #FFFFFF;
     margin: 30px auto 0;
 }
+.order {
+    margin: 50px auto 180px ;   
+}
 
 #order {
     padding: 13px 41px 13px 41px;
@@ -127,11 +130,8 @@ header p {
     line-height: 22px;
     color: #FFFFFF;
     display: block;
-    margin-bottom: 175px;
-    
-    margin: 50px auto 180px ;
-    width: 145px;
     border-radius: 2px;
+    width: 145px;
 }
 
 h2 {
@@ -346,7 +346,7 @@ input:nth-child(4n) {
     vertical-align: text-top;
 }
 
-#contacts button {
+#button_contacts {
     display: block;
     margin: 0 auto;
     width: 700px;
@@ -427,8 +427,9 @@ button[type="submit"] {
     position: relative;
 }
 
-#button:hover , #order:hover{
+#button_contacts:hover , #order:hover{
     opacity: .8;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 1185px) {
@@ -460,7 +461,7 @@ button[type="submit"] {
 
 @media screen and (max-width: 1000px) {
     .cards {
-        margin: 0 15%;
+        margin: 0 10%;
         flex-direction: column;
     }
 
@@ -497,6 +498,9 @@ button[type="submit"] {
 		display: none;
 		height: auto;
     }
+    .annotation {
+        margin: 30px 50px 0;
+    }
 }
 
 @media screen and (max-width:768px) {
@@ -524,8 +528,8 @@ button[type="submit"] {
 }
 
 @media screen and (max-width:700px) {
-    header p {
-        margin: 30px 10% 0;
+    .order {
+        margin: 30px 10% 180px;
     }
 
     input {
@@ -536,7 +540,7 @@ button[type="submit"] {
         width: 350px;
     }
 
-    #contacts button {
+    #contacts #button_contacts {
         width: 370px;
     }
 
@@ -623,11 +627,11 @@ button[type="submit"] {
         width: 280px;
     }
 
-    #contacts button {
+    #contacts #button_contacts {
         width: 300px;
     }
-    header p {
-        margin: 30px 5% 0;
+    .order {
+        margin: 30px 5% 180px;
     }
 
     .contact {
@@ -656,8 +660,29 @@ button[type="submit"] {
     }
 }
 
-@media  screen and (max-width:330px) {
+@media  screen and (max-width:321px) {
+
+    .annotation {
+        margin: 30px 20px 0;
+    }
+    .cards {
+        margin: 0 9px 0;
+        width: 300px;
+    }
     .card {
-        margin-left:0.5%;
+        margin-left: 0;
+    }
+    #scheme h2 {
+        padding-top: 100px;
+    }
+    .world_map {
+        margin-top: 0;
+        background-image: none;
+    }
+    footer img {
+        padding-top: 40px;
+    }
+    footer p {
+        padding-bottom: 30px;
     }
 }
